@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ultimate AI Hackathon Idea Vault — Muneer Ali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --yellow: #FFD60A;
+  --yellow-dim: #FFF3B0;
+  --yellow-dark: #E6C000;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F7;
+  --gray-200: #E8E8ED;
+  --gray-300: #D2D2D7;
+  --gray-400: #86868B;
+  --gray-500: #6E6E73;
+  --gray-600: #48484A;
+  --gray-700: #2C2C2E;
+  --gray-800: #1D1D1F;
+  --gray-900: #0A0A0A;
+  --green: #30D158;
+  --red: #FF453A;
+  --blue: #0A84FF;
+  --purple: #BF5AF2;
+  --orange: #FF9F0A;
+  --page-w: 210mm;
+  --page-h: 297mm;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #E8E8ED;
+  color: var(--gray-800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.15;
+}
+
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  margin: 20px auto;
+  background: var(--white);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+}
+
+.page-inner {
+  padding: 24mm 22mm;
+}
+
+/* COVER PAGE */
+.cover-page {
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--page-h);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,214,10,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,214,10,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,214,10,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,214,10,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40mm 24mm;
+}
+
+.cover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,214,10,0.1);
+  border: 1px solid rgba(255,214,10,0.25);
+  color: var(--yellow);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.cover-illustration {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.cover-illustration .orb {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px rgba(255,214,10,0.3), 0 0 120px rgba(255,214,10,0.1);
+  animation: orbPulse 3s ease-in-out infinite;
+}
+
+.cover-illustration .ring {
+  position: absolute;
+  border: 1px solid rgba(255,214,10,0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.cover-illustration .ring-1 {
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  animation: ringRotate 12s linear infinite;
+}
+
+.cover-illustration .ring-2 {
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  animation: ringRotate 18s linear infinite reverse;
+  border-style: dashed;
+}
+
+.cover-illustration .ring-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 10px var(--yellow);
+}
+
+.cover-illustration .dot-1 { top: 0; left: 50%; transform: translateX(-50%); }
+.cover-illustration .dot-2 { bottom: 0; left: 50%; transform: translateX(-50%); }
+.cover-illustration .dot-3 { top: 50%; right: 0; transform: translateY(-50%); }
+
+.cover-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.cover-title .highlight {
+  color: var(--yellow);
+  position: relative;
+}
+
+.cover-subtitle {
+  font-size: 1.5rem;
+  color: var(--gray-400);
+  font-weight: 300;
+  max-width: 400px;
+  margin: 0 auto 48px;
+  line-height: 1.5;
+}
+
+.cover-author {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--gray-300);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cover-author span {
+  color: var(--yellow);
+}
+
+.cover-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow), var(--orange), var(--yellow));
+}
+
+/* PAGE STYLES */
+.chapter-page {
+  page-break-before: always;
+}
+
+.chapter-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  color: var(--yellow-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapter-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.chapter-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--gray-100);
+  line-height: 1;
+  margin-bottom: -16px;
+  letter-spacing: -0.04em;
+}
+
+.chapter-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.chapter-desc {
+  font-size: 1.2rem;
+  color: var(--gray-400);
+  max-width: 480px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 32px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title .icon-wrap {
+  width: 32px;
+  height: 32px;
+  background: var(--yellow);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-title .icon-wrap svg {
+  width: 16px;
+  height: 16px;
+  color: var(--black);
+}
+
+p.body-text {
+  font-size: 1.15rem;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+/* CALLOUT BOXES */
+.callout {
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.callout-yellow {
+  background: #FFFDE7;
+  border-left: 4px solid var(--yellow);
+}
+
+.callout-black {
+  background: var(--gray-900);
+  color: var(--white);
+  border-left: 4px solid var(--yellow);
+}
+
+.callout-gray {
+  background: var(--gray-100);
+  border-left: 4px solid var(--gray-300);
+}
+
+.callout-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.callout-yellow .callout-icon { color: var(--yellow-dark); }
+.callout-black .callout-icon { color: var(--yellow); }
+.callout-gray .callout-icon { color: var(--gray-500); }
+
+.callout-content { flex: 1; }
+.callout-content strong { font-weight: 600; }
+.callout-yellow .callout-content { color: #5C4A00; }
+.callout-black .callout-content { color: var(--gray-300); }
+.callout-gray .callout-content { color: var(--gray-600); }
+
+.callout-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CARDS */
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+/* BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.badge-yellow { background: #FFF8CC; color: #7A6800; }
+.badge-green { background: #E8FAF0; color: #1A7A3A; }
+.badge-red { background: #FFE8E6; color: #CC2A20; }
+.badge-blue { background: #E8F2FF; color: #0055CC; }
+.badge-purple { background: #F3E8FF; color: #7C3AED; }
+.badge-black { background: var(--gray-900); color: var(--white); }
+.badge-gray { background: var(--gray-100); color: var(--gray-600); }
+
+/* PROJECT CARD STYLES */
+.project-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  page-break-inside: avoid;
+}
+
+.project-header {
+  background: var(--gray-900);
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-cat {
+  font-size: 0.8rem;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.project-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.project-badges {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.project-body {
+  padding: 24px 28px;
+}
+
+.project-section {
+  margin-bottom: 20px;
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-value {
+  font-size: 1.05rem;
+  color: var(--gray-700);
+  line-height: 1.65;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--gray-600);
+}
+
+.feature-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+}
+
+.meta-item {
+  text-align: center;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.meta-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.judge-bar {
+  height: 6px;
+  background: var(--gray-200);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.judge-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--yellow), var(--orange));
+  transition: width 0.5s ease;
+}
+
+/* TABLE */
+.premium-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+
+.premium-table thead th {
+  background: var(--gray-900);
+  color: var(--white);
+  padding: 12px 16px;
+  text-align: left;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.premium-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-600);
+  vertical-align: top;
+}
+
+.premium-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.premium-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.premium-table a {
+  color: var(--yellow-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.premium-table a:hover {
+  text-decoration: underline;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--gray-200);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--yellow);
+}
+
+.timeline-item.active::before {
+  background: var(--gray-900);
+  box-shadow: 0 0 0 2px var(--gray-900);
+}
+
+.timeline-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* NUMBERED LIST */
+.num-list {
+  list-style: none;
+  counter-reset: numlist;
+  padding: 0;
+}
+
+.num-list li {
+  counter-increment: numlist;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.num-list li::before {
+  content: counter(numlist, decimal-leading-zero);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--yellow-dark);
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #FFF8CC;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.num-list li .list-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.num-list li .list-title {
+  font-weight: 600;
+  color: var(--gray-800);
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.num-list li .list-desc {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+/* CHECKLIST */
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 1.05rem;
+  color: var(--gray-700);
+}
+
+.checklist li:last-child {
+  border-bottom: none;
+}
+
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-300);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* TOC */
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+  text-decoration: none;
+  color: var(--gray-700);
+  transition: color 0.2s;
+}
+
+.toc-item:hover {
+  color: var(--gray-900);
+}
+
+.toc-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--yellow-dark);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.toc-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  flex: 1;
+}
+
+.toc-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--gray-300);
+  margin-bottom: 4px;
+  min-width: 20px;
+}
+
+.toc-page {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  color: var(--gray-400);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+.page-footer {
+  position: absolute;
+  bottom: 16mm;
+  left: 22mm;
+  right: 22mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--gray-300);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.page-footer-line {
+  position: absolute;
+  bottom: 20mm;
+  left: 22mm;
+  right: 22mm;
+  height: 1px;
+  background: var(--gray-100);
+}
+
+/* SPLIT LAYOUT */
+.split-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+/* STACK CARD */
+.stack-card {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stack-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  background: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-200);
+}
+
+.stack-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.stack-desc {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+}
+
+/* ANIMATIONS */
+@keyframes orbPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes ringRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* PRINT STYLES */
+@media print {
+  body { background: white; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    min-height: auto;
+  }
+  .page:last-child { page-break-after: auto; }
+  .chapter-page { page-break-before: always; }
+  .project-card { page-break-inside: avoid; }
+  .card { page-break-inside: avoid; }
+  .no-print { display: none !important; }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}
+
+/* COMPACT LIST for resource sections */
+.compact-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.compact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-100);
+  font-size: 0.9rem;
+}
+
+.compact-item .ci-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--gray-300);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.compact-item a {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.compact-item a:hover {
+  color: var(--yellow-dark);
+  text-decoration: underline;
+}
+
+/* YELLOW SECTION DIVIDER */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 36px 0 24px;
+}
+
+.section-divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.section-divider .diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* PRESENTATION SCRIPT */
+.script-box {
+  background: var(--gray-900);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 12px 0;
+  font-size: 0.95rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+}
+
+.script-box .speaker {
+  color: var(--yellow);
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.script-box .dialogue {
+  color: var(--gray-200);
+}
+
+/* CATEGORY HEADER */
+.cat-header {
+  background: linear-gradient(135deg, var(--gray-900) 0%, #1a1a2e 100%);
+  border-radius: 14px;
+  padding: 20px 28px;
+  margin: 32px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cat-header .cat-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--yellow);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cat-header .cat-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--black);
+}
+
+.cat-header .cat-text h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.cat-header .cat-text p {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin-top: 2px;
+}
+
+.cat-count {
+  margin-left: auto;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255,214,10,0.3);
+}
+
+/* MVP / FUTURE split */
+.mvpf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mvp-box, .future-box {
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.mvp-box {
+  background: #F0FFF4;
+  border: 1px solid #C6F6D5;
+}
+
+.future-box {
+  background: #FFF5F5;
+  border: 1px solid #FED7D7;
+}
+
+.mvp-box h4 {
+  color: #276749;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.future-box h4 {
+  color: #C53030;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mvp-box ul, .future-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mvp-box li, .future-box li {
+  font-size: 0.9rem;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mvp-box li { color: #2F855A; }
+.future-box li { color: #9B2C2C; }
+
+/* Small utility */
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.text-sm { font-size: 0.9rem; }
+.text-xs { font-size: 0.8rem; }
+.text-yellow { color: var(--yellow-dark); }
+.text-gray { color: var(--gray-400); }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="page cover-page">
+  <div class="cover-grid"></div>
+  <div class="cover-content">
+    <div class="cover-illustration">
+      <div class="orb"></div>
+      <div class="ring ring-1">
+        <div class="ring-dot dot-1"></div>
+      </div>
+      <div class="ring ring-2">
+        <div class="ring-dot dot-2"></div>
+        <div class="ring-dot dot-3"></div>
+      </div>
+    </div>
+    <div class="cover-badge">
+      <i data-lucide="zap" style="width:14px;height:14px"></i>
+      2025 Edition
+    </div>
+    <h1 class="cover-title">
+      THE ULTIMATE<br>AI <span class="highlight">HACKATHON</span><br>IDEA VAULT
+    </h1>
+    <p class="cover-subtitle">
+      100 Startup-Level Project Ideas That Judges Actually Want To See
+    </p>
+    <p class="cover-author">Created by <span>Muneer Ali</span></p>
+  </div>
+  <div class="cover-bar"></div>
+</div>
+
+<!-- ==================== COPYRIGHT PAGE ==================== -->
+<div class="page">
+  <div class="page-inner" style="padding-top: 60mm;">
+    <p style="font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gray-800); margin-bottom:32px;">Copyright & Disclaimer</p>
+
+    <p class="body-text" style="font-size:1rem;">
+      <strong style="color:var(--gray-800)">Copyright &copy; 2025 Muneer Ali.</strong> All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of the author, except for brief quotations in critical reviews and certain other noncommercial uses permitted by copyright law.
+    </p>
+
+    <p class="body-text" style="font-size:1rem; margin-top:20px;">
+      <strong style="color:var(--gray-800)">Disclaimer:</strong> The information provided in this book is for educational and informational purposes only. The author has made every effort to ensure the accuracy of the information presented. However, the author makes no warranties regarding the completeness, reliability, or suitability of this information. Product names, company names, and URLs mentioned herein may be trademarks or registered trademarks of their respective owners. Their inclusion does not imply endorsement.
+    </p>
+
+    <p class="body-text" style="font-size:1rem; margin-top:20px;">
+      <strong style="color:var(--gray-800)">Limitation of Liability:</strong> In no event shall the author be liable for any loss or damage including without limitation, indirect or consequential loss or damage, arising from the use of this book.
+    </p>
+
+    <div style="margin-top:40px; padding:20px; background:var(--gray-50); border-radius:12px; border:1px solid var(--gray-200);">
+      <p style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1rem; color:var(--gray-800); margin-bottom:8px;">Edition Information</p>
+      <p style="font-size:0.9rem; color:var(--gray-500); line-height:1.8;">
+        First Edition: January 2025<br>
+        Format: Digital (PDF)<br>
+        Version: 1.0<br>
+        Category: Technology / Education<br>
+        Price: &#8377;1,499
+      </p>
+    </div>
+
+    <p class="body-text" style="font-size:1rem; margin-top:32px;">
+      For inquiries, collaborations, or bulk licensing, reach out via the author's official channels.
+    </p>
+  </div>
+  <div class="page-footer-line"></div>
+  <div class="page-footer">
+    <span>The Ultimate AI Hackathon Idea Vault</span>
+    <span>ii</span>
+  </div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="page">
+  <div class="page-inner">
+    <div class="chapter-label">Contents</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:2.4rem; font-weight:700; color:var(--gray-900); margin-bottom:32px; letter-spacing:-0.03em;">Table of Contents</h2>
+
+    <a class="toc-item" href="#ch1">
+      <span class="toc-num">01</span>
+      <span class="toc-title">How Hackathon Judges Think</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">01</span>
+    </a>
+    <a class="toc-item" href="#ch2">
+      <span class="toc-num">02</span>
+      <span class="toc-title">How To Find Million Dollar Problems</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">05</span>
+    </a>
+    <a class="toc-item" href="#ch3">
+      <span class="toc-num">03</span>
+      <span class="toc-title">100 Startup-Level AI Project Ideas</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">09</span>
+    </a>
+    <a class="toc-item" href="#ch4">
+      <span class="toc-num">04</span>
+      <span class="toc-title">50 APIs Every Hacker Should Know</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">52</span>
+    </a>
+    <a class="toc-item" href="#ch5">
+      <span class="toc-num">05</span>
+      <span class="toc-title">100 Useful Websites & Tools</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">58</span>
+    </a>
+    <a class="toc-item" href="#ch6">
+      <span class="toc-num">06</span>
+      <span class="toc-title">Winning Tech Stacks</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">64</span>
+    </a>
+    <a class="toc-item" href="#ch7">
+      <span class="toc-num">07</span>
+      <span class="toc-title">Winning Presentation Guide</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">67</span>
+    </a>
+    <a class="toc-item" href="#ch8">
+      <span class="toc-num">08</span>
+      <span class="toc-title">Bonus: 400+ Resources</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">71</span>
+    </a>
+    <a class="toc-item" href="#ch9">
+      <span class="toc-num">09</span>
+      <span class="toc-title">Complete Hackathon Checklist</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">76</span>
+    </a>
+  </div>
+  <div class="page-footer-line"></div>
+  <div class="page-footer">
+    <span>The Ultimate AI Hackathon Idea Vault</span>
+    <span>iii</span>
+  </div>
+</div>
+
+<!-- ==================== CHAPTER 1 ==================== -->
+<div class="page chapter-page" id="ch1">
+  <div class="page-inner">
+    <div class="chapter-label">Chapter 01</div>
+    <div class="chapter-number">01</div>
+    <h2 class="chapter-title">How Hackathon Judges Think</h2>
+    <p class="chapter-desc">Understanding what goes on inside a judge's head is the single biggest unfair advantage you can have.</p>
+
+    <div class="callout callout-black">
+      <div class="callout-icon"><i data-lucide="trophy"></i></div>
+      <div class="callout-content">
+        <p><strong>Key Insight:</strong> Judges don't pick the best technology. They pick the team that makes them feel something — excitement, relief, or "why didn't I think of that?"</p>
+      </div>
+    </div>
+
+    <p class="body-text">Every hackathon judge evaluates projects through a mental framework. If you understand that framework, you can engineer your project — and your pitch — to score maximum points in every category. Here are the eight pillars they evaluate.</p>
+
+    <div class="section-divider"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="lightbulb"></i></div>
+      Innovation
+    </div>
+    <p class="body-text">Judges see hundreds of "AI chatbots" and "to-do apps with GPT." Innovation isn't about using the newest model — it's about a <strong>novel application</strong> of technology to a problem nobody else noticed. Ask yourself: "Has this been done at Devpost 50 times?" If yes, pivot.</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="rocket"></i></div>
+      Execution
+    </div>
+    <p class="body-text">A working demo beats a beautiful slide deck every single time. Judges want to <strong>touch your product</strong>. Even if it's ugly, if it works end-to-end, you're ahead of 80% of teams. Prioritize the critical path: input → processing → output.</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="presentation"></i></div>
+      Presentation
+    </div>
+    <p class="body-text">Your pitch is a <strong>story</strong>, not a feature list. Structure: Problem → "What if?" → Demo → Impact. The first 15 seconds determine whether the judge pays attention or checks their phone.</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="target"></i></div>
+      Market Potential
+    </div>
+    <p class="body-text">Judges ask: "Could this become a real company?" Show <strong>TAM, SAM, SOM</strong> even with rough numbers. Mention one real competitor and explain why you're different. A $50B market with no solution is more exciting than a $1T market with 100 competitors.</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="indian-rupee"></i></div>
+      Business Model
+    </div>
+    <p class="body-text">You don't need a full financial model. You need <strong>one clear sentence</strong> about how money flows. "We charge $29/month per clinic" is infinitely better than "We'll figure out monetization later."</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="monitor-play"></i></div>
+      Demo Quality
+    </div>
+    <p class="body-text">The demo is your product. Not your code, not your architecture — the demo. <strong>Pre-record a backup video</strong>. Have a fake user journey ready. Never type live if you can avoid it. One bug during a demo can kill your chances.</p>
+
+    <div class="section-title">
+      <div class="icon-wrap"><i data-lucide="alert-circle"></i></div>
+      Real Problem
+    </div>
+    <p class="body-text">"We solved a problem" vs. "We found a problem and built a solution" — judges can tell the difference. A real problem has <strong>victims</strong>: people losing money, time, health, or opportunities. Name them.</p>
+
+    <div class="callout callout-yellow">
+      <div class="callout-icon"><i data-lucide="star"></i></div>
+      <div class="callout-content">
+        <p><strong>Pro Tip:</strong> Before you build anything, write your judge pitch in one sentence. If it sounds boring, your project is boring. Fix the idea first.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer-line"></div>
+  <div class="page-footer">
+    <span>How Hackathon Judges Think</span>
+    <span>01</span>
+  </div>
+</div>
+
+<!-- CHAPTER 1 CONTINUED - SCORING MATRIX -->
+<div class="page">
+  <div class="page-inner">
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.6rem; font-weight:700; color:var(--gray-900); margin-bottom:8px;">The Judge Scoring Matrix</h3>
+    <p class="chapter-desc" style="margin-bottom:24px;">This is roughly how most hackathon scoring rubrics are weighted.</p>
+
+    <table class="premium-table">
+      <thead>
+        <tr>
+          <th>Criterion</th>
+          <th>Weight</th>
+          <th>What Judges Look For</th>
+          <th>Common Mistake</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Innovation</strong></td>
+          <td>20–25%</td>
+          <td>Novel approach, not just novel tech</td>
+          <td>Building another chatbot</td>
+        </tr>
+        <tr>
+          <td><strong>Execution</strong></td>
+          <td>20–25%</td>
+          <td>Working demo, clean code, no crashes</td>
+          <td>Beautiful slides, broken demo</td>
+        </tr>
+        <tr>
+          <td><strong>Impact</strong></td>
+          <td>15–20%</td>
+          <td>Real users, measurable outcomes</td>
+          <td>"Everyone could use this"</td>
+        </tr>
+        <tr>
+          <td><strong>Presentation</strong></td>
+          <td>10–15%</td>
+          <td>Clear story, confident delivery</td>
+          <td>Reading from slides</td>
+        </tr>
+        <tr>
+          <td><strong>Feasibility</strong></td>
+          <td>10–15%</td>
+          <td>Can this actually ship?</td>
+          <td>Requires 6 more months of work</td>
+        </tr>
+        <tr>
+          <td><strong>Design / UX</strong></td>
+          <td>5–10%</td>
+          <td>Intuitive, polished, accessible</td>
+          <td>Developer UI only</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-divider"><div class="line"></div><div class="diamond"></div><div class="line"></div></div>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.6rem; font-weight:700; color:var(--gray-900); margin-bottom:8px;">Winning vs. Losing Examples</h3>
+    <p class="chapter-desc" style="margin-bottom:24px;">Real patterns from 200+ hackathons analyzed.</p>
+
+    <div class="split-row">
+      <div class="card" style=" 
